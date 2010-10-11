@@ -1,7 +1,14 @@
-PySOO
+				------------
+					PySOO	
+				------------
+						
+Nombre Original:
+	PSOO (Paquete de Simulacion Orientada a Objectos)
 
-Autor: Ricardo D. Quiroga - L2Radamanthys
-Colaboradores : Nelson Efrain A. Cruz
+
+Desarrolladores: 
+	-Ricardo D. Quiroga - L2Radamanthys
+    -Nelson Efrain A. Cruz
 
 Descripción:
     PySOO es un proyecto migración a Python del código del PSOO (Paquete de 
@@ -20,3 +27,10 @@ materias de la carrera nos parece que es importante introducir
 inmediata aplicación laboral, o simplemente enseñar el uso de otra 
 herramienta acercando de cierto modo el uso de software libre en el 
 ambiente de la cátedra y por que no en el de toda la Facultad.
+
+Descargar:
+	Puedes descargar una copia como comprimido "tar" o "zip" desde 
+	http://github.com/l2radamanthys/PySOO/archives/master u obtener la 
+	versión mas reciente con git ejecutando:
+	
+	cmd> git clone git://github.com/l2radamanthys/PySOO.git
