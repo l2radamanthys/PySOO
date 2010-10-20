@@ -10,7 +10,7 @@
 __version__ =  "Alpha"
 __desarrolladores__ = """ 
 Ricardo Daniel Quiroga - L2Radamanthys - l2radamanthys@gmail.com
-Nelson E. Cruz - @gmail.com
+Nelson E. Cruz - neac03@gmail.com
 """
 __web__ = "http://"
 
