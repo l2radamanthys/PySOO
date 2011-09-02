@@ -1,5 +1,5 @@
-PySOO
-=====
+PySOO - Python Simulacion Orientada a Objectos
+==============================================
 						
 Nombre Original
 ---------------
