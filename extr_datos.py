@@ -69,7 +69,9 @@ class Conjunto(ColaLIFO):
     def vacio(self):
         pass
 
+
     #toy pensando si implementar o no los siguientes metodos :S
+    #ya q no se si valen la pena
     #error_llena()
     #error_vacia()
     #error_no_encontrado()
