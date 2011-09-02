@@ -1,0 +1,15 @@
+MENSAJE IMPORTANTE:
+
+Se ofrece PSOO, un Paquete de Simulación Orientada a Objetos, en su versión para Turbo Pascal
+(versión 6.0 en adelante). 
+
+Contenido sintético:
+ Directorio PSOO --> contenedor de los archivos de PSOO para PASCAL
+ Directorio Doc  --> documentación variada: guía rápida de uso de PSOO, algunos parciales
+		     de años anteriores y tablas de distribuciones conocidas.
+ Ejem1 a 3.pas 	 --> ejemplos para usar PSOO con PASCAL
+ InstPSOO.exe	 --> ayuda visual de la instalación del paquete (en Turbo Pascal 6). Prestar 
+		     especial atención a la configuración del entorno del compilador. 
+
+NOTA: los documentos se proveen en formato Doc -> Word 97 o superior.
+
