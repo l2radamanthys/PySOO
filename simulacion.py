@@ -34,6 +34,30 @@ class ObjetoSimulacion:
 
 #despachador
 class Simulacion:
+    """
+    En PSOO existen basicamente tres "colas" con las que se lleva el control
+    de todo:
+        - cola de objetos activos [PilaObjActivos]: es una cola LIFO , en 
+        realidad una pila, de objetos (objetos que son hilos en nuestro caso)
+        que estan listos para usar el cpu, estan esperando que les toque
+        su turno para el cpu
+        
+        - cola de objetos suspendido [ConjObjSusp]: es una cola, un conjunto
+        en realidad por lo que no hay un orden, donde se
+        almacenan los hilos (en nuestro caso) que no podran usar el cpu
+        hasta que se los ponga en estado activo. cuando esten en estado
+        activo los hilos se sacan de esta cola y se pasa a las de objetos
+        activos.
+        
+        - cola (heap) de objetos dormidos con esperar [HeapObjFut]: es un arbol ordenado
+        se me hace que mantiene en orden los objetos que fueron dormidos
+        con esperar(tiempo) y estan esperando que se acabe el tiempo para
+        tomar el control del cpu, una vez que toman el control si no me
+        equivoco salen del heap.   
+    Hay que ver que colas implementar
+    
+    todo : COMPLETAR!
+    """
 	def __init__(self):
 		self.hora_act = 0.0	#hora actual en el sistema
 		self.mismo = None	#puntero al objecto que actualmente se encuetra corriendo
@@ -127,12 +151,23 @@ end;
 		activar pone en estado de ACTIVO a obj_sim_act. Esto solo se puede 
         llevar a cabo si dicho objeto estaba previamente SUSPENDIDO. De 
         no cumplirse esto se emite el correspondiente mensaje de error y la
-        simulacion se detiene.
+        simulacion se detiene. Que un objeto este activo significa que esta
+        esperando por su turno para el uso del cpu, en definitiva este metodo
+        no afecta al hilo que lo llama solo pone en estado activo al hilo
+        representado por obj_sim_act.
 		"""
 		pass 
 		
 		
 	def esperar(self, tiempo):
+        """
+        el objeto (que es un hilo) llamador se "duerme" durante el tiempo "tiempo". Durante 
+        esos momentos se encuentra desahabilitado para el uso de cpu y se deberia contar con
+        una cola en la que se pongan estos objetos (el heap de objetos futuros en PSOO) a fin
+        de controlar el paso del tiempo para que consumido el "tiempo" el hilo se despierte 
+        y tome el control del cpu, 
+        """
+        
 		pass
 		
 		
