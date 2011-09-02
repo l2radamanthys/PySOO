@@ -6,7 +6,7 @@ import sys
 
 #Version con hilos
 
-class ObjectoSimulacion:
+class ObjetoSimulacion:
 	"""
 		plantilla para crear sus propios objectos para la Simulacion
 	"""
@@ -60,17 +60,72 @@ class Simulacion:
 		self.__tope_monton = None
 		
 		
-	def iniciar(self, obj_direc):
+	def iniciar(self, obj_director):
+        """
+        ESTO DEBE SER BORRADO
+        var
+  i:word;
+  hora:real;
+  obj:PtrObjSim;
+  p:pointer;
+  begin
+  HeapError:=@ErrorMemoLlena;   { tomar el control de errores de des-  }
+                                { bordamiento del HEAP de TP6.         }
+
+  IniciarCorrutinas(Sptr-1,TamMinBuffCorr,FacAmplGestDin);{ iniciar el }
+     { gestor de corrutinas poniendo la base de la pila desde la rutina}
+     { "arrancar" y especificando un cierto tama¤o m¡nimo para el ///  }
+     { buffer del manejador de corrutinas.                             }
+
+  HoraAct:=0;            { hora actual en el sistema igual a cero.     }
+
+  HeapObjFut.Iniciar;    { inicializo el heap de objetos activos.      }
+
+  ConjObjSusp.iniciar(TamMinConjSusp,FacAmplConjSusp); { inicializo el }
+                                           { conjunto de objetos sus-  }
+                                           { pendidos.                 }
+
+  PilaObjActivos.Iniciar(TamMinColaAct,FacAmplColaAct);   { inicializo }
+                                           { la pila de objetos activos}
+
+  ObjEnCPU:=direc;       { el objeto en CPU  es el "director"                }
+  director:=direc;       { director = puntero al objeto "director".          }
+  arrancar;              { arranca el objeto en CPU (en este caso el direc.) }
+#heap error creo que no debe ser tenido en cuenta puesto que no creo que tengamos
+que lidiar con errores de desbordamiento
+  HeapError:=nil;        { restaura el gestor de errores de desbordamiento   }
+                         { del HEAP de Trbo Pascal V6.0.                     }
+end;
+        """
+        """
+        Inicializa la simulación
+        
+        Incompleto
+        """
+        self.hora_act = 0.0 #creo que no es necesario hacerlo de nuevo
+        self.__dirctor = obj_director # es el director el que inicia las simulaciones
+                                      # ademas debe ser el primero en ejecutarse
+        self.arrancar()
+        
 		pass
 	
 	
 	def nuevo(self, obj_sim):
 		"""
+        Cede el control al obj_sim dejando en estado de activo al objeto
+        llamador de este mensaje. Lo que haces es que obj_sim pase a ejecutarse
+        poniendo al objeto que llamo a esta funcion a esperar por el uso del cpu
+        por lo que ObjetoSimulacion deberia ser un hilo.
+         
+        obj_sim debe ser del tipo ObjetoSimulacion
 		"""
 		pass
 		
 	
 	def activar(self, obj_sim_act):
+        """
+        
+        """
 		pass 
 		
 		
