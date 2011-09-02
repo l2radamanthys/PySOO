@@ -4,6 +4,7 @@
 
 import sys
 
+#Version con hilos
 
 class ObjectoSimulacion:
 	"""
