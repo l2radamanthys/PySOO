@@ -81,26 +81,75 @@ class Conjunto(ColaLIFO):
 
 class NodoHeap:
     """
-        formato de registro de los Nodos Pertenecientes a la pila o Heap
+        Nodo, elementos del ABB
     """
     def __init__(self, obj=None, t=0.0):
         self.objecto = obj  #apuntador a un objecto
+        #el peso de los nodos se define por la variable tiempo
+        #si esta mal corregirlo :D
         self.tiempo = t
 
+        #ramas
+        self.rama_izq = None
+        self.rama_der = None
 
-#por el momento no aseguro que esta clase funcione correrctamento
-#me esta costando entender la idea de esta clase :(
+
+    #sobrecarga de operadores
+    def __eq__(self, nodo):
+        return (self.tiempo == nodo.tiempo)
+            
+
+    def __neq__(self, nodo):
+        return (self.tiempo != nodo.tiempo)
+        
+
 class Heap:
+    """
+        Es un ABB, nu es balanceadp
+
+            (A)
+           /   \ 
+         (B)   (C)
+        /   \     \
+
+    """
     def __init__(self):
-        self.__heap = [NodoHeap(t=-1e37)]
+        self.__heap = NodoHeap(t=-1e37) #nodo raiz
+        self.pointer = self.__heap #apuntador generico
 
-
-    def poner(self, r, datos):
+    def poner(self, r=0, datos=None):
+        """
+            A partir de los datos pasados crea un Nodo y lo inserta
+            en el ABB
+        """
         nodo = NodoHeap(datos, r)
-        expl = len(self.__heap) - 1
-
+        self.pointer = self.__heap
+        self._pone(nodo)
+    
+    
+    def _poner(self, nodo): #no testeado
+        """
+            inserta un nodo en el ABB
+        """
+        if self.pointer.tiempo < nodo.tiempo:
+            if self.pointer.rama_der == None:
+                self.pointer.rama_der = nodo
+                self.pointer = self.__heap
+            else:
+                self.pointer.rama_der = self.pointer
+                self._poner(nodo)
+        else:
+            if self.pointer.rama_izq == None:
+                self.pointer.rama_izq = nodo
+                self.pointer = self.__heap
+            else:
+                self.pointer.rama_izq = self.pointer
+                self._poner(nodo)
+        
 
     def sacar(self, r):
+        """
+        """
         pass
 
 
@@ -112,12 +161,16 @@ class Heap:
 
 
     def altura(self):
+        """
+            calcula la altura de del arbol
+        """
         pass
 
 
     def imprime_arbol(self):
-        #todavia no le entiendo la gracia a este metodo para mostrar el
-        #arbol
+        """
+            Pensando como implementar... pensando
+        """
         pass
 
 
@@ -126,7 +179,8 @@ class Heap:
             sobrecarga del operador longitud, que permitira conocer
             externamente la cantidad de elementos de la Heap (Pila)
         """
-        return len(self.__heap)
+        #return len(self.__heap)
+        pass
 
 
 
