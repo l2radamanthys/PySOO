@@ -20,6 +20,7 @@ SUSPENDIDO = 0
 ACTIVO = 1
 ESPERANDO = 2
 BORRADO = 3
+INDEFINIDO = 4 #recien creado
 
 
 #constantes q definen los diferentes mensajes de error por el momento

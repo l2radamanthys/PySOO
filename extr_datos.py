@@ -84,7 +84,7 @@ class NodoHeap:
         Nodo, elementos del ABB
     """
     def __init__(self, obj=None, t=0.0):
-        self.objecto = obj  #apuntador a un objecto
+        self.objeto = obj  #apuntador a un objeto
         #el peso de los nodos se define por la variable tiempo
         #si esta mal corregirlo :D
         self.tiempo = t
