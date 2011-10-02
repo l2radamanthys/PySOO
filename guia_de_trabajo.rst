@@ -11,7 +11,7 @@ ver como se lleva a cabo:
 ============  ==============  ===============  ===============  =============
 Original      Final           Dificultad       Asignado a       Estado avance 
 ============  ==============  ===============  ===============  =============
-SIMULACI.PAS  simulacion.py   medio-avanzado   nadie            inicial
+SIMULACI.PAS  simulacion.py   medio-avanzado   nerones (open)   inicial
                               manejo de hilos 
 CORRUT.PAS    [1]             n/a              n/a              n/a
 CRONO.PAS     crono.py        basico           nadie            avanzado
