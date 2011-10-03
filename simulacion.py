@@ -113,11 +113,23 @@ class Simulacion:
                     #es evento no cancelado? wtf es cancelado si hora_desp == 0
                     if (self.hora_actual == self.__obj_en_cpu.hora_desp):
                         self.__obj_en_cpu.estado = ACTIVO
+                        #aca debo hacer que __obj_en_cpu se pase a ejecutar saliendo de esta funcion
                         
+                    self.__obj_en_cpu.cant_esp-=1
+                    if (self.__obj_en_cpu == 0) and (self.__obj_en_cpu.estado == BORRADO):
+                        self.__conj_obj_susp.sacar(self.__obj_en_cpu)
+                        self.__obj_en_cpu.estado = BORRADO
+                        #aca debo hacer que __obj_en_cpu se pase a ejecutar saliendo de esta funcion
+                        
+                raise Exception(E_FUTURO)
+        else:
+            self.__obj_en_cpu = self.__pila_obj_act.sacar
+            #aca debo hacer que __obj_en_cpu se pase a ejecutar saliendo de esta funcion
+                    
                 
     
     
-    def nuevo(self, obj_sim):
+    def nuevo(self, obj_simulacion):
         """
         Cede el control al obj_sim dejando en estado de activo al objeto
         llamador de este mensaje. Lo que haces es que obj_sim pase a ejecutarse
@@ -126,7 +138,10 @@ class Simulacion:
          
         obj_sim debe ser del tipo ObjetoSimulacion
         """
-        pass
+        self.__pila_obj_act.poner = self.__obj_en_cpu
+        self.__obj_en_cpu = obj_simulacion
+        #no se si arrancar trabajara adecuadamente cuando sea llamado desde aca
+        self._arrancar()
         
     
     def activar(self, obj_sim_act):
