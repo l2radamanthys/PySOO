@@ -1,4 +1,6 @@
 #ficheros a ignorar
+*.o
+*~
 *.pyc
 docs/
 nbproyect/
