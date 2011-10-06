@@ -1,4 +1,5 @@
 UNIT GestDin;
+{$ASMMODE intel}
 { La unidad provee herramientas que interceptan el manejo din mico de la /// }
 { memoria realizado por Turbo Pascal V6.0, logr ndo de esta manera aumentar  }
 { la rapidez del mismo.                                                      }

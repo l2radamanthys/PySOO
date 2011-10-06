@@ -10,7 +10,7 @@ Begin
 clrscr;
 randomize;
 alpha_minuto := 0.1;
-mu_minuto := 0.1;
+mu_minuto := 0.125;
 tiempo_observacion := 1; {en minutos}
 alpha := alpha_minuto * tiempo_observacion;
 mu := mu_minuto * tiempo_observacion;
