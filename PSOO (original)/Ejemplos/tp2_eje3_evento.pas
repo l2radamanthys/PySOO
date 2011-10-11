@@ -20,31 +20,46 @@ var
 	
 procedure avanzar(var estado:tipo_estado);
 begin
-	if estado.proxima_llegada < estado.proxima_salida then
+	{if estado.cola = 0 then
 		begin
-		inc(estado.cola);
 		estado.hora := estado.proxima_llegada;
+		estado.cola := 1;
 		estado.proxima_llegada := estado.hora + dExp(lambda);
+		estado.proxima_salida := estado.hora + dExp(mu);
 		end
 	else
-		begin
-		dec(estado.cola);
-		estado.hora := estado.proxima_salida;
-		if estado.cola < 0 then writeln('cola negativa');
-		if estado.cola = 0 then
+		begin}
+		if estado.proxima_llegada < estado.proxima_salida then
 			begin
-			estado.proxima_salida := estado.proxima_llegada + dExp(mu);
+			inc(estado.cola);
+			estado.hora := estado.proxima_llegada;
+			estado.proxima_llegada := estado.hora + dExp(lambda);
 			end
-		else estado.proxima_salida := estado.hora + dExp(mu);
-		end
+		else
+			begin
+			dec(estado.cola);
+			estado.hora := estado.proxima_salida;
+			if estado.cola < 0 then writeln('cola negativa');
+			if estado.cola = 0 then
+				begin
+				estado.proxima_llegada := estado.hora + dExp(lambda);
+				estado.proxima_salida := estado.proxima_llegada + dExp(mu);
+				
+				end
+			else 
+				begin
+				estado.proxima_salida := estado.hora + dExp(mu);
+				end
+			end
+		{end;}
 end;
 
 Begin
 randomize;
-tiempo_simulacion := 100000000;
-lambda := 0.25;
-mu := 0.5;
-
+tiempo_simulacion := 100000;
+lambda := 5;
+mu := 9;
+writeln('Tiempo en sistema teorico = ',1/(mu-lambda):7:4 );
 for i:=1 to 10 do
 	begin
 	clientes := 0;
@@ -58,13 +73,10 @@ for i:=1 to 10 do
 		cola_previa := estado.cola;
 		hora_previa := estado.hora;
 		avanzar(estado);
-		if estado.cola > cola_previa then
-			begin
-			clientes := clientes +1;
-			delta_tiempo := estado.hora - hora_previa;
-			t_total := t_total + delta_tiempo;
-			end;
+		if estado.cola > cola_previa then clientes := clientes +1;
+		delta_tiempo := estado.hora - hora_previa;
+		t_total := t_total + cola_previa * delta_tiempo;
 		end;
-	writeln('tiempo en sistema = ',t_total/clientes:7:4,' ', t_total/tiempo_simulacion:7:4, '  ',clientes/tiempo_simulacion:7:4);
+	writeln('t_sistema = ',t_total/clientes:7:4,' cola_prom. ', t_total/tiempo_simulacion:7:4);
 	end;
 End.
