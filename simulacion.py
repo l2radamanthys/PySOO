@@ -9,7 +9,7 @@ from threading import Thread
 
 class ObjetoSimulacion(Thread):
     """
-        plantilla para crear sus propios objectos para la Simulacion
+        plantilla para crear sus propios obectos para la Simulacion
     """
     def __init__(self):
         self.p_memo_pila = None #puntero a la informacion de pila
