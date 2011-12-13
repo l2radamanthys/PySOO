@@ -4,6 +4,7 @@
 
 import sys
 from threading import Thread
+import constantes
 
 #Version con hilos
 
@@ -20,10 +21,11 @@ class ObjetoSimulacion(Thread):
     #def __eq__(obj_simulacion)
         
     def run(self):
-        pass
         
         
-    ciclo_de_vida = run
+        
+    def ciclo_de_vida(self):
+        pass 
     
     #creo que no es necesario
     def congelar(self):
@@ -98,8 +100,8 @@ class Simulacion:
         terminada la ejecucion busca el siguiente objeto a ser ejecutado.
         """
         self.__obj_en_cpu.cant_esp = 0
-        self.__obj_en_cpu.estado = ACTIVO
-        self.__obj_en_cpu.run()
+        self.__obj_en_cpu.estado = constantes.ACTIVO
+        self.__obj_en_cpu.start()
         
         #quiero comparar si son los mismos punteros
         if ( self.__obj_en_cpu != self.__director ):
