@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from extr_datos import *
-from random import *
+from pysoo.core.extr_datos import *
+from random import shuffle
 import unittest
 
 class TestEstrDatos(unittest.TestCase):

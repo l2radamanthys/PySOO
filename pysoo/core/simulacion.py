@@ -4,7 +4,8 @@
 
 import sys
 from threading import Thread
-import constantes
+from constantes import *
+import extr_datos
 
 #Version con hilos
 
@@ -21,7 +22,7 @@ class ObjetoSimulacion(Thread):
     #def __eq__(obj_simulacion)
         
     def run(self):
-        
+        pass
         
         
     def ciclo_de_vida(self):
@@ -88,9 +89,9 @@ class Simulacion:
         #esta parte esta incompleta
         self.__obj_en_cpu = objeto_director #replica de mismo
         self.__director = objeto_director #puntero al objeto director
-        self.__heap_obj_fut = extr_dat.Heap()   #cola deprioridades de objetos a futuro
-        self.__conj_obj_susp = extr_dat.Conjunto()  #conjunto de objectos suspendidos
-        self.__pila_obj_act = extr_dat.ColaLIFO()   #pila de obj activos que no estan en la CPU
+        self.__heap_obj_fut = extr_datos.Heap()   #cola deprioridades de objetos a futuro
+        self.__conj_obj_susp = extr_datos.Conjunto()  #conjunto de objectos suspendidos
+        self.__pila_obj_act = extr_datos.ColaLIFO()   #pila de obj activos que no estan en la CPU
         self._arrancar();
         self.__tope_monton = None 
         
@@ -100,7 +101,7 @@ class Simulacion:
         terminada la ejecucion busca el siguiente objeto a ser ejecutado.
         """
         self.__obj_en_cpu.cant_esp = 0
-        self.__obj_en_cpu.estado = constantes.ACTIVO
+        self.__obj_en_cpu.estado = ACTIVO
         self.__obj_en_cpu.start()
         
         #quiero comparar si son los mismos punteros
